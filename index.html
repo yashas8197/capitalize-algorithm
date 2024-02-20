@@ -24,11 +24,8 @@
     capitalizeWordsBtn.addEventListener('click', () => {
       const wordsInput = document.querySelector('#wordsInput').value;
 
-      if (wordsInput.split(" ").length < 4) {
-        output.innerHTML = capitalizeWordsLessThan4(wordsInput)
-      } else {
-        output.innerHTML = capitalizeWordsMoreThan4(wordsInput)
-      }
+      wordsInput.split(" ").length < 4 ? output.innerHTML = capitalizeWordsLessThan4(wordsInput) : output.innerHTML = capitalizeWordsMoreThan4(wordsInput)
+
 
     })
 
