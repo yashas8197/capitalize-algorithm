@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <h1>Capitalize Words Program</h1>
+
+  <label>Enter a Sentence:</label>
+  <input type="text" id="wordsInput" />
+  <button id="capitalizeWordsBtn">Capitalize Words</button>
+
+  <div id="output"></div>
+
+  <script>
+    const capitalizeWordsBtn = document.querySelector('#capitalizeWordsBtn')
+    const output = document.querySelector('#output')
+
+    capitalizeWordsBtn.addEventListener('click', () => {
+      const wordsInput = document.querySelector('#wordsInput').value;
+
+      if (wordsInput.split(" ").length < 4) {
+        output.innerHTML = capitalizeWordsLessThan4(wordsInput)
+      } else {
+        output.innerHTML = capitalizeWordsMoreThan4(wordsInput)
+      }
+
+    })
+
+    function capitalizeWordsLessThan4(words) {
+      const wordsLessThen4 = words.split(" ");
+      const eachWord = [...wordsLessThen4]
+      for (let i = 0; i < eachWord.length; i++) {
+        eachWord[i] = eachWord[i].charAt(0).toUpperCase() + eachWord[i].slice(1);
+      }
+      return eachWord.join(' ');
+    }
+
+    function capitalizeWordsMoreThan4(words) {
+      const wordsMoreThen4 = words.split(' ');
+      let eachWord = [...wordsMoreThen4];
+      for (let i = 0; i < eachWord.length; i++) {
+        eachWord[0] = eachWord[0].charAt(0).toUpperCase() + eachWord[i].slice(1);
+        return eachWord.join(" ");
+      }
+    }
+
+  </script>
+</body>
+
+</html>
